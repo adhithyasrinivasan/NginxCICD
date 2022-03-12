@@ -1,4 +1,5 @@
 pipeline {
+    agent None
     stages {
         stage("Docker Unit Test") {
             sh run_tests.sh
