@@ -18,6 +18,10 @@ node {
         def myEnv = docker.build 'nginxtest:1'
         myEnv.inside {
             sh 'nginx -v'
+        }
+    }
+    stage('Deploy and Test Image') {
+        docker.image('nginxtest:1').withRun { c ->
             sh 'curl localhost:80'
         }
     }
