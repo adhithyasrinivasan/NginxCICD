@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Test') {
             agent { 
-                    dockerfile {
+                    dockerfile true {
                     args '-it --entrypoint=/bin/bash' }
                 }
             steps {
