@@ -2,10 +2,10 @@ pipeline {
     agent any
     stages {
         stage('Test') {
-            agent { docker {
-                    dockerfile true
-                    args '-it --entrypoint=/bin/bash' 
-                }}
+            agent { 
+                    dockerfile {
+                    args '-it --entrypoint=/bin/bash' }
+                }
             steps {
                 sh 'nginx -v'
                 sh 'cat /usr/share/nginx/html/index.html'
