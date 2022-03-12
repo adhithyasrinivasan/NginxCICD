@@ -17,5 +17,6 @@ node {
   def myEnv = docker.build 'nginxtest:1'
   myEnv.inside {
     sh 'nginx -v'
+    sh 'curl localhost:80'
   }
 }
