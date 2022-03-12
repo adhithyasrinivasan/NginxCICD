@@ -15,13 +15,13 @@
 
 node {
     stage('Build Image') {
-        def myEnv = docker.build 'nginxtest:1'
+        def myEnv = docker.build 'nginxtest:2'
         myEnv.inside {
             sh 'nginx -v'
         }
     }
     stage('Deploy and Test Image') {
-        docker.image('nginxtest:1').withRun('-p 8082:8082') { c ->
+        docker.image('nginxtest:2').withRun('-p 8082:8082') { c ->
             docker.image('centos:7').inside("--link ${c.id}:nginx") {
                 sh 'curl nginx:8082'
             }
