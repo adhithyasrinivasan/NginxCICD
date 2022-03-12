@@ -2,7 +2,7 @@
 //     agent any
 //     stages {
 //         stage('Run') {
-//             agent { 
+//             agent {
 //                     dockerfile true
 //                 }
 //             steps {
@@ -14,9 +14,11 @@
 // }
 
 node {
-  def myEnv = docker.build 'nginxtest:1'
-  myEnv.inside {
-    sh 'nginx -v'
-    sh 'curl localhost:80'
-  }
+    stage('Build Image') {
+        def myEnv = docker.build 'nginxtest:1'
+        myEnv.inside {
+            sh 'nginx -v'
+            sh 'curl localhost:80'
+        }
+    }
 }
