@@ -1,7 +1,7 @@
 
 #!/bin/bash
 
-set -eEuo pipefail
+set -eEu pipefail
 
 # The first parameter is a Docker tag or image id
 declare -r DOCKER_TAG="$1"
