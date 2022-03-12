@@ -1,15 +1,13 @@
 pipeline {
     agent any
     stages {
-        stage('Test') {
+        stage('Run') {
             agent { 
-                    dockerfile true {
-                    args '-it --entrypoint=/bin/bash' }
+                    dockerfile true
                 }
             steps {
                 sh 'nginx -v'
                 sh 'cat /usr/share/nginx/html/index.html'
-                sh 'curl localhost:80'
             }
         }
     }
