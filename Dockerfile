@@ -8,4 +8,4 @@ ADD server.conf /etc/nginx/conf.d/
 
 EXPOSE 80
 
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
+CMD ["nginx", "-g", "daemon off;"]
