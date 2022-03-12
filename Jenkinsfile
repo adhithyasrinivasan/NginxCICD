@@ -14,6 +14,7 @@
 // }
 
 node {
+    checkout scm
     stage('Build Image') {
         def myEnv = docker.build 'nginxtest:2'
         myEnv.inside {
