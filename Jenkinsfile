@@ -5,7 +5,7 @@ pipeline {
             agent { docker {
                     dockerfile true
                     args '-it --entrypoint=/bin/bash' 
-                }
+                }}
             steps {
                 sh 'nginx -v'
                 sh 'cat /usr/share/nginx/html/index.html'
