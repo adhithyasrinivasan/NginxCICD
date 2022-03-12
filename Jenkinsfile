@@ -21,9 +21,9 @@ node {
         }
     }
     stage('Deploy and Test Image') {
-        docker.image('nginxtest:1').withRun('-p 80:80') { c ->
+        docker.image('nginxtest:1').withRun('-p 8082:8082') { c ->
             docker.image('centos:7').inside("--link ${c.id}:nginx") {
-                sh 'curl nginx:80'
+                sh 'curl nginx:8082'
             }
             //sh 'netstat -napt | grep LIST'
             //sh 'ps -ef'
