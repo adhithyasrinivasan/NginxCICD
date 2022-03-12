@@ -23,7 +23,7 @@ node {
     stage('Deploy and Test Image') {
         docker.image('nginxtest:1').withRun('-p 80:80') { c ->
             //sh 'netstat -napt | grep LIST'
-            sh 'ps -ef'
+            //sh 'ps -ef'
             sh 'curl localhost:80'
         }
     }
