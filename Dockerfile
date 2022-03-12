@@ -6,6 +6,6 @@ RUN apt-get update && apt-get -y install nginx curl
 ADD index.html /usr/share/nginx/html/index.html
 ADD server.conf /etc/nginx/conf.d/
 
-EXPOSE 80
+EXPOSE 80 8082
 
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
