@@ -22,10 +22,8 @@ node {
         }
     }
     stage('Run Container Tests') {
-        docker.image('gcr.io/gcp-runtimes/container-structure-test:latest').withRun('-p 8082:8082') { c ->
-            docker.image('centos:7').inside("--link ${c.id}:ctest") {
-                sh 'curl ctest:8082'
-            }
+        docker.image('maven:3.3.3-jdk-8').inside { c ->
+            sh 'mvn -v'
         }
     }
     stage('Deploy and Test Image') {
