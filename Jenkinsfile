@@ -27,7 +27,7 @@ node {
                 "./tests/",
         )
 
-        testImage.inside('-v tests/:/tests') {
+        testImage.inside('-v tests:/tests') {
             sh "ls -al /tests"
             sh '/container-structure-test test -i nginxtest:2 -c /tests/test_config.yaml'
         }
