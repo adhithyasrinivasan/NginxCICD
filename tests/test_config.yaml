@@ -1,8 +1,6 @@
+schemaVersion: '2.0.0'
 commandTests:
   - name: "Nginx Version"
     command: "nginx"
-    args:
-      - -v
-      - |
-         echo hello &&
-         echo world
+    args: ['-v']
+    expectedOutput: ['nginx version: nginx/1.14.0 (Ubuntu)']
