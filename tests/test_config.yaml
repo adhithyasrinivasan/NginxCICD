@@ -1,0 +1,8 @@
+commandTests:
+  - name: "Nginx Version"
+    command: "nginx"
+    args:
+      - -v
+      - |
+         echo hello &&
+         echo world

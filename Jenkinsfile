@@ -28,7 +28,7 @@ node {
         )
 
         testImage.inside('-v tests:/tmp') {
-            sh '/container-structure-test test -i nginxtest:2'
+            sh '/container-structure-test test -i nginxtest:2 -c /tmp/test_config.yaml'
         }
     }
     stage('Deploy and Test Image') {
