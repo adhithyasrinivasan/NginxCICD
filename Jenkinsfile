@@ -22,8 +22,15 @@ node {
         }
     }
     stage('Run Container Tests') {
-        docker.image('maven:3.3.3-jdk-8').inside { c ->
-            sh 'mvn -v'
+        node ("gcrcontainer") {
+            def testImage = docker.build(
+                "google-container-tests",
+                "./tests/Dockerfile",
+            )
+
+            testImage.inside('-v ./tests:/tmp') {
+                sh '/container-structure-test test -i nginxtest:2'
+            }
         }
     }
     stage('Deploy and Test Image') {
