@@ -22,15 +22,13 @@ node {
         }
     }
     stage('Run Container Tests') {
-        node {
-            def testImage = docker.build(
+        def testImage = docker.build(
                 "google-container-tests",
                 "./tests/",
-            )
+        )
 
-            testImage.inside('-v ./tests:/tmp') {
-                sh '/container-structure-test test -i nginxtest:2'
-            }
+        testImage.inside('-v ./tests:/tmp') {
+            sh '/container-structure-test test -i nginxtest:2'
         }
     }
     stage('Deploy and Test Image') {
