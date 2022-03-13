@@ -21,6 +21,11 @@ node {
             sh 'nginx -v'
         }
     }
+    stage('Run Container Tests') {
+        docker.image('gcr.io/gcp-runtimes/container-structure-test:latest').withRun('-i nginxtest') { c ->
+            sh 'test'
+        }
+    }
     stage('Deploy and Test Image') {
         docker.image('nginxtest:2').withRun('-p 8082:8082') { c ->
             docker.image('centos:7').inside("--link ${c.id}:nginx") {
