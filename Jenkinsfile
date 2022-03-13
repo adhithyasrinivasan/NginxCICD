@@ -27,7 +27,7 @@ node {
                 "./tests/",
         )
 
-        testImage.inside('-v ./tests:/tmp') {
+        testImage.inside('-v tests:/tmp') {
             sh '/container-structure-test test -i nginxtest:2'
         }
     }
