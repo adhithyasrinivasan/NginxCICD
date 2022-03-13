@@ -32,3 +32,7 @@ Files:
 4. tests/test_nginx.py which will be able to run with renatomefi/docker-testinfra:1 docker image for testing.
 5. tests/Dockerfile for building the google container test repository
 6. tests/test_config.yaml for the google container test config.
+
+Steps to run the Python Script:
+1. Run pip install -r requirements.txt to install the psutil module.
+2. Run python python_mem_usage.py script to print the memory and cpu usage.
