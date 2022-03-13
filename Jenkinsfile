@@ -22,7 +22,7 @@ node {
         }
     }
     stage('Run Container Tests') {
-        docker.image('gcr.io/gcp-runtimes/container-structure-test:latest').withRun('-i nginxtest') { c ->
+        docker.image('gcr.io/gcp-runtimes/container-structure-test:latest') { c ->
             sh 'test'
         }
     }
