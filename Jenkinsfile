@@ -29,7 +29,7 @@ node {
 
         testImage.inside('-v tests:/tests') {
             sh "ls -al /tests"
-            sh '/container-structure-test test -i nginxtest:2 -c /tests/test_config.yaml'
+            sh '/container-structure-test test -i nginxtest:2 -c ${WORKSPACE}/tests/test_config.yaml'
         }
     }
     stage('Deploy and Test Image') {
