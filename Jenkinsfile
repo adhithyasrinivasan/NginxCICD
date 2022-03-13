@@ -22,8 +22,15 @@ node {
         }
     }
     stage('Run Container Tests') {
-        docker.image('gcr.io/gcp-runtimes/container-structure-test:latest').inside() { c ->
-            sh 'test'
+        agent {
+            docker {
+                image 'gcr.io/gcp-runtimes/container-structure-test:latest'
+            }
+        }
+        stages('Testing') {
+            stage {
+                sh 'container-structure-test test'
+            }
         }
     }
     stage('Deploy and Test Image') {
