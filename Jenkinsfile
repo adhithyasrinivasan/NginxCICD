@@ -22,7 +22,7 @@ node {
         }
     }
     stage('Run Container Tests') {
-        node ("gcrcontainer") {
+        node {
             def testImage = docker.build(
                 "google-container-tests",
                 "./tests/Dockerfile",
