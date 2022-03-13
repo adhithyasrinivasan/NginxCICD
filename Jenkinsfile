@@ -22,9 +22,11 @@ node {
         }
     }
     stage('Run Container Tests') {
-        agent {
-            docker {
-                image 'gcr.io/gcp-runtimes/container-structure-test:latest'
+        node {
+            agent {
+                docker {
+                    image 'gcr.io/gcp-runtimes/container-structure-test:latest'
+                }
             }
         }
         stages('Testing') {
