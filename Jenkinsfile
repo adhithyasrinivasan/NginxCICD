@@ -25,7 +25,7 @@ node {
         node {
             def testImage = docker.build(
                 "google-container-tests",
-                "./tests/Dockerfile",
+                "./tests/",
             )
 
             testImage.inside('-v ./tests:/tmp') {
